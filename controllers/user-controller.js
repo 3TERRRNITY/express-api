@@ -1,9 +1,12 @@
+require('dotenv').config();
+
 const bcrypt = require("bcryptjs");
 const path = require("path");
 const fs = require('fs');
 const jwt = require("jsonwebtoken");
 const { prisma } = require("../prisma/prisma-client");
 const Jdenticon = require('jdenticon');
+
 
 const UserController = {
   register: async (req, res) => {
@@ -29,7 +32,7 @@ const UserController = {
       const avatarName = `${name}_${Date.now()}.png`;
       const avatarPath = path.join(__dirname, '/../uploads', avatarName);
       fs.writeFileSync(avatarPath, png);
-  
+
       // Создаем пользователя
       const user = await prisma.user.create({
         data: {
@@ -70,7 +73,7 @@ const UserController = {
       }
 
       // Generate a JWT
-      const token = jwt.sign({ userId: user.id }, process.env.SECRET_KEY);
+      const token = jwt.sign({ userId: user.id }, process.env.SECRET_TOKEN);
 
       res.json({ token });
     } catch (error) {
@@ -132,7 +135,7 @@ const UserController = {
         const existingUser = await prisma.user.findFirst({
           where: { email: email },
         });
-    
+
         if (existingUser && existingUser.id !== parseInt(id)) {
           return res.status(400).json({ error: "Почта уже используется" });
         }

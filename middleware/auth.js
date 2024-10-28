@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) => {
@@ -11,7 +13,7 @@ const authenticateToken = (req, res, next) => {
   }
 
   // Проверяем токен
-  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+  jwt.verify(token, process.env.SECRET_TOKEN, (err, user) => {
     if (err) {
       return res.status(403).json({ error: 'Invalid token' });
     }
