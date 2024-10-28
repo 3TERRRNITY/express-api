@@ -1,31 +1,27 @@
 # Для запуска проекта, необходимо выполнить следующие шаги:
 
-1. Склонировать репозиторий с api по ссылке https://github.com/brian7346/express-threads-api.git на свой компьютер.
+1. Склонировать репозиторий с api по ссылке  на свой компьютер.
 ```
-git clone https://github.com/brian7346/express-threads-api.git
+git clone https://github.com/3TERRRNITY/express-api
 ```
 
-2. Склонировать репозиторий с клиентским приложением по ссылке [https://github.com/brian7346/react-threads.git](https://github.com/brian7346/react-client) на свой компьютер.
+2. Склонировать репозиторий с клиентским приложением по ссылке https://github.com/3TERRRNITY/express-api на свой компьютер.
 ```
-git clone https://github.com/brian7346/react-threads.git
+git clone https://github.com/3TERRRNITY/express-api
 ```
 
 3. Открыть терминал (или командную строку) и перейти в корневую директорию сервера.
 ```
-cd express-threads-api
+cd express-api
 ```
 
-4. Переименовать файл .env.local (убрать .local)
-```
-.env
-```
 
-5. Запустить команду docker compose которая поднимет сервер, клиент и базу данных
+4. Запустить команду docker compose которая поднимет сервер, клиент и базу данных
 ```
 docker compose up
 ```
 
-6. Открыть браузер и перейти по адресу http://localhost:80, чтобы увидеть запущенный проект.
+5. Открыть браузер и перейти по адресу http://localhost:80, чтобы увидеть запущенный проект.
 
 
 
